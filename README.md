@@ -14,23 +14,13 @@ Build a personal tracker for the month of Ramadhan to:
 
 ## Tech Stack
 
-- **Frontend:** Vue 3 (Vite)
-- **Database (localhost):**
-  - Option A (simple): `localStorage` (no backend)
-  - Option B (recommended local DB): SQLite via a lightweight API (Express/Nitro)
-- **CSS Framework:** Tailwind CSS
-
-### Recommended MVP Stack
-
-If you want fast development and zero backend complexity:
-- Vue 3 + Tailwind CSS + localStorage
-
-If you want more structured persistent data:
-- Vue 3 + Tailwind CSS + Node/Express + SQLite
+- **Frontend:** HTML + Vanilla JavaScript (single-page style)
+- **Persistence:** `localStorage` (offline-friendly, no backend)
+- **Styling:** Custom CSS
 
 ---
 
-## Core Features (MVP)
+## Core Features (Implemented)
 
 1. **Daily Dashboard (Day 1–30)**
    - Date / Day number
@@ -39,49 +29,26 @@ If you want more structured persistent data:
    - Notes/reflection
 
 2. **Activity Checklist**
-   Track yes/no or count for:
+   Track yes/no for:
    - Fajr, Dhuhr, Asr, Maghrib, Isha
    - Taraweeh
    - Quran reading done
    - Dhikr
    - Charity/Sadaqah
-   - Optional: exercise/water/sleep consistency
+   - Exercise, water, and sleep consistency
 
 3. **Monthly Progress**
    - Days completed
-   - Quran streak
+   - Current and longest Quran streak
    - Activity completion percentage
 
----
-
-## Suggested Data Model
-
-```ts
-// Example shape if using localStorage or API payload
-interface RamadhanDay {
-  day: number; // 1..30
-  date: string; // YYYY-MM-DD
-  surah: string;
-  quranCompleted: boolean;
-  prayers: {
-    fajr: boolean;
-    dhuhr: boolean;
-    asr: boolean;
-    maghrib: boolean;
-    isha: boolean;
-    taraweeh: boolean;
-  };
-  dhikr: boolean;
-  sadaqah: boolean;
-  notes: string;
-}
-```
+4. **Data Persistence**
+   - Saves all day records in localStorage
+   - Reset selected day or reset full month
 
 ---
 
 ## Quran Tracker Plan (30 Days with Surah)
-
-A balanced daily plan (short-to-medium surahs for consistency):
 
 | Day | Surah |
 |---|---|
@@ -116,48 +83,29 @@ A balanced daily plan (short-to-medium surahs for consistency):
 | 29 | Qaf + Adh-Dhariyat + At-Tur + An-Najm + Al-Qamar + Ar-Rahman + Al-Waqi'ah |
 | 30 | Al-Hadid to An-Nas |
 
-> You can customize this plan based on your recitation speed and preference.
-
 ---
 
-## Project Structure (Suggestion)
+## Project Structure
 
 ```bash
 ramadhan/
-  src/
-    components/
-      DayCard.vue
-      ActivityChecklist.vue
-      ProgressSummary.vue
-    data/
-      quran-plan.ts
-    stores/
-      tracker.ts
-    views/
-      HomeView.vue
+  index.html
+  app.js
+  styles.css
   README.md
 ```
 
 ---
 
-## Development Roadmap
+## Run Locally
 
-1. Initialize Vue + Tailwind project
-2. Create Quran plan data file (30 days)
-3. Build day card and checklist UI
-4. Save/retrieve progress from localStorage (or SQLite API)
-5. Add monthly summary metrics and streaks
-6. Improve UX (filter by completed, reset month, export)
+Since this app is static, you can run it with any local HTTP server:
 
----
+```bash
+python3 -m http.server 4173
+```
 
-## Future Improvements
-
-- User authentication
-- Cloud sync (Supabase/Firebase)
-- Printable monthly report
-- Ramadan journal prompts
-- Reminder notifications
+Then open: `http://localhost:4173`
 
 ---
 
