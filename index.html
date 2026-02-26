@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ramadhan Activity & Quran Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="hero">
+        <h1>Ramadhan Activity & Quran Tracker</h1>
+        <p>Track daily ibadah consistency and complete your Quran plan for days 1-30.</p>
+      </header>
+
+      <section class="summary" id="summary"></section>
+
+      <section class="controls card">
+        <div>
+          <label for="daySelect">Select Day</label>
+          <select id="daySelect" aria-label="Select ramadhan day"></select>
+        </div>
+        <button id="resetCurrent" class="btn secondary">Reset Selected Day</button>
+        <button id="resetAll" class="btn danger">Reset Entire Month</button>
+      </section>
+
+      <section class="card day-details" id="dayDetails"></section>
+
+      <section>
+        <h2>Monthly Dashboard</h2>
+        <div id="daysGrid" class="days-grid"></div>
+      </section>
+    </main>
+
+    <template id="activityTemplate">
+      <label class="check-item">
+        <input type="checkbox" />
+        <span></span>
+      </label>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
